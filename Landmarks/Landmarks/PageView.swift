@@ -17,9 +17,10 @@ struct PageView<Page: View>: View {
     }
 
     var body: some View {
-        VStack {
+        ZStack {
             PageViewController(controllers: viewControllers, currentPage: $currentPage)
-            Text("CurrentPage: \(currentPage)").padding(5)
+            PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)
+                .padding(.trailing)
         }
     }
 }
